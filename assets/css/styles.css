@@ -1,0 +1,440 @@
+/* root */
+
+@font-face {
+    font-family: 'icones';
+    src: url(../font/icones.ttf);
+}
+
+:root {
+    --corpo: #1D232A;
+    --cabeçalho: #1D232A;
+    --cabeçalho-mobile: #15191C;
+    --menu-lateral: #15191C;
+    --cartão: #2C343A;
+
+    --fonte: #FFFFFF;
+    --fonte-alternativa: #95999C;
+    --links: #0480DC;
+    --botão: #0480DC;
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+body {
+    background: var(--corpo);
+    font-family: 'Open Sans', 'icones', sans-serif;
+    color: var(--fonte);
+}
+
+.cabecalho {
+    display: flex;
+    font-size: 2.4rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 1.6rem;
+    background-color: var(--cabeçalho-mobile);
+}
+
+.cabecalho__menu::before {
+    content: "\e904";
+}
+
+.cabecalho__logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.cabecalho__notificacao::before {
+    content: "\e906";
+}
+
+.cabecalho__nome_usuario {
+    display: none;
+}
+
+.cabecalho hr {
+    display: none;
+}
+
+
+.conteudo {
+    padding: 2.4rem 1.6rem;
+    display: grid;
+    gap: 1.6rem;
+}
+
+.menu_lateral {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 75vw;
+    background: var(--menu-lateral);
+    transition: left .25s;
+    z-index: 99;
+    left: -100vw;
+}
+
+
+.menu_lateral--ativo {
+    left: 0;
+    transition: left .25s;
+}
+
+.menu__logo {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding:  3.2rem 0;
+    margin: auto;
+}
+
+.menu_lateral li {
+    font-size: 1.6rem;
+    padding: 2.4rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1.6rem;
+}
+
+.navegacao--ativo {
+    border-left: var(--fonte) solid .8rem;
+}
+
+.navegacao--inicio::before {
+    content: '\e902';
+}
+.navegacao--videos::before {
+    content: '\e90e';
+
+}
+.navegacao--picos::before {
+    content: '\e908';
+
+}
+.navegacao--integrantes::before {
+    content: '\e903';
+
+}
+.navegacao--camisas::before {
+    content: '\e900';
+
+}
+.navegacao--pinturas::before {
+    content: '\e90a';
+
+}
+
+.titulo_pagina {
+
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.titulo-secao {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.card {
+    background-color: var(--cartão);
+    margin: auto;
+    border-radius: 1.6rem;
+    width: 100%;
+}
+
+.cartao__imagem--desktop {
+    display: none;
+}
+
+.cartao__imagem--mobile {
+    display: flex
+
+}
+
+.card_conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: .8rem;
+    padding: 1.6rem;
+    align-items: center;
+}
+
+.card_conteudo--destaque {
+    font-size: 1.6rem;
+    grid-column: 2 span;
+}
+
+.card_conteudo--titulo {
+    font-size: 1.8rem;
+    grid-column: 2 span;
+    font-weight: 700;
+}
+
+.card_conteudo--nome {
+    font-size: 1.4rem;
+    grid-column: 2 span;
+    color: var(--fonte-alternativa);
+}
+
+.card_conteudo--minutos {
+    font-size: 1.4rem;
+    color: var(--fonte-alternativa);
+}
+
+.card_conteudo--minutos::before {
+    content: '\e90c';
+    padding: 0 .4rem;
+}
+
+.card_conteudo--vizualizacoes {
+    font-size: 1.4rem;
+    color: var(--fonte-alternativa);
+}
+
+.card_botao {
+    display: flex;
+    background-color: var(--botão);
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1.6rem;
+    font-size: 1.4rem;
+    justify-self: flex-end;
+}
+
+.card_botao--destaque {
+    width: 100%;
+    grid-column: 2 span;
+}
+
+
+
+.card_botao--play::before {
+    content: "\e90b";
+    font-size: 2.4rem;
+}
+
+.secao {
+    padding-top: 3.2rem;
+    display: grid;
+    gap: 1.6rem;
+}
+
+.recentes {
+    display: none;
+}
+
+.novas-artes {
+    display: none;
+}
+
+
+.rodape {
+    height: 7rem;
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .menu_lateral {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 75vw;
+        background: var(--menu-lateral);
+        transition: left .25s;
+        z-index: 99;
+        left: -100vw;
+    }
+
+    .cabecalho {
+        display: grid;
+        justify-content: end;
+        background: var(--corpo);
+        box-shadow: var(--menu-lateral) .4rem .4rem 1.6rem;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .cabecalho__perfil {
+        display: flex;
+    }
+
+    .cabecalho__menu {
+        display: none;
+    }
+
+    .cabecalho__logo {
+        display: none;
+    }
+
+    .cabecalho__nome_usuario {
+        display: flex;
+        font-size: 1.6rem;
+        color: var(--fonte-alternativa);
+        align-items: center;
+    }
+
+    .cabecalho__nome_usuario::before {
+        content: "";
+        display: flex;
+        width: 3.2rem;
+        height: 3.2rem;
+        background-image: url(../img/profile_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 1.6rem;
+    }
+
+    .cabecalho__nome_usuario::after {
+        content: '\e90d';
+        color: var(--fonte);
+        font-size: 1.5rem;
+        padding: 1.6rem;
+        align-items: center;
+    }
+
+    .cabecalho__notificacao {
+        padding: 0 3.2rem;
+    }
+
+    .cabecalho hr {
+        display: block;
+    }
+
+    .menu_lateral {
+        position: static;
+        width: 20rem;
+        grid-column: 1;
+        grid-row: 1 / 2 span;
+
+    }
+
+    .conteudo {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "inicio inicio inicio inicio"
+            "destaque destaque destaque recentes"
+            "mais-vistos mais-vistos mais-vistos mais-vistos"
+            "novas-artes destaque-arte destaque-arte destaque-arte"
+            "camisas-recentes camisas-recentes camisas-recentes camisas-recentes";
+        max-width: 144rem;
+        margin: auto;
+
+    }
+
+    .titulo_pagina {
+        grid-area: inicio;
+    }
+
+    .cartao__imagem--desktop {
+        display: grid;
+    }
+
+    .cartao__imagem--mobile {
+        display: none
+
+    }
+
+    .card--destaque {
+        grid-area: destaque;
+    }
+
+    .recentes {
+        display: grid;
+        grid-area: recentes;
+    }
+
+
+    .secao-agrupada {
+        background: var(--cartão);
+        border-radius: 1.6rem;
+        padding: 1.6rem;
+    }
+
+    .secao-agrupada--titulo {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+
+    .ver-todos {
+        color: var(--links);
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    
+    .secao-agrupada .card_conteudo--minutos {
+        display: none;
+    }
+    .secao-agrupada .card_botao {
+        display: none;
+    }
+
+    .secao-agrupada .card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        align-items: center;
+        justify-items: start;
+    }
+
+    .secao-agrupada .card_conteudo {
+        display: grid;
+    }
+
+    .secao-agrupada img {
+        border-radius: .4rem;
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+
+    .secao-agrupada .card_conteudo--titulo {
+        font-size: 1.4rem;
+    }
+
+
+    .mais-vistos {
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+    }
+    .videos-mais-vistos {
+        grid-area: mais-vistos;
+    }
+
+    .mais-vistos .titulo-secao {
+        grid-column: 1 / 4 span;
+    }
+    
+    .novas-artes {
+        display: grid;
+    }
+
+    .secao .novas-artes {
+        grid-area: novas-artes;
+    }
+
+    .card--destaque_arte {
+        grid-area: destaque-arte;
+    }
+
+    .camisas-recentes {
+        grid-area: camisas-recentes;
+    }
+
+
+
+}
